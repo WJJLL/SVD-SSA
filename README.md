@@ -12,6 +12,10 @@ SVD-based feature decomposition atttack
 
 ## Implementation
 
+- **Prepare Dataset**
+
+The 1000 images from the NIPS 2017 ImageNet-Compatible dataset are provided in the folder ```dataset/images```, along with their metadata in  ```dataset/images.csv```. More details about this dataset can be found in its [official repository](https://github.com/cleverhans-lab/cleverhans/tree/master/cleverhans_v3.1.0/examples/nips17_adversarial_competition/dataset).
+
 - **Prepare models**
 
   Download pretrained PyTorch models [here](https://github.com/ylhz/tf_to_pytorch_model), which are converted from widely used Tensorflow models. Then put these models into `./tf_models/`
@@ -36,9 +40,10 @@ SVD-based feature decomposition atttack
 - **Evaluations on normally trained models**
 
   Running `verify.py` to evaluate the attack  success rate
-
+  Running `verifyDef.py` to evaluate the attack  success rate against adversarial trained model
   ```bash
   CUDA_VISIBLE_DEVICES=gpuid python verify.py
+  CUDA_VISIBLE_DEVICES=gpuid python verifyDef.py
   ```
 
 - **Evaluations on defenses**
