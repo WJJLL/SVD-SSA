@@ -1,7 +1,7 @@
 # SVD-SSA
 SVD-based feature decomposition atttack
 
-![Learning Algo](/framework.pdf)
+![Learning Algo](/framework.png)
 
 ## Requirements
 
