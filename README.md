@@ -13,18 +13,18 @@ SVD-based feature decomposition atttack
 
 
 ## Implementation
-
-- **Prepare Dataset**
-
-The 1000 images from the NIPS 2017 ImageNet-Compatible dataset are provided in the folder ```dataset/images```, along with their metadata in  ```dataset/images.csv```. More details about this dataset can be found in its [official repository](https://github.com/cleverhans-lab/cleverhans/tree/master/cleverhans_v3.1.0/examples/nips17_adversarial_competition/dataset).
-
 - **Prepare models**
 
-  Download pretrained PyTorch models [here](https://github.com/ylhz/tf_to_pytorch_model), which are converted from widely used Tensorflow models. Then put these models into `./tf_models/`
+  Download pretrained PyTorch models [here](https://github.com/ylhz/tf_to_pytorch_model), which are converted from widely used Tensorflow models. Then put these models into `./models/`
 
 - **Generate adversarial examples**
 
-  Using `SFA.py` to implement our S<sup3</sup>I-FGSM,  you can run this attack as following
+  Using `MI_FGSM.py` to implement MI-FGSM, DI-FGSM, TI-FGSM or TI-DIM
+  Using `PI_FGSM.py` to implement PI-FGSM, PI-TI-DI-FGSM
+  Using `SI_NI_FGSM.py` to implement SI_NI_FGSM, SI_NI_TI-DIM
+  Using `VT_MI_FGSM.py` to implement VT_MI_FGSM
+  Using `S2I_FGSM.py` to implement S2I_FGSM or S2I_TI_DIM
+  
   
   ```bash
   
