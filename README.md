@@ -17,35 +17,28 @@ SVD-based feature decomposition atttack
 
   Download pretrained PyTorch models [here](https://github.com/ylhz/tf_to_pytorch_model), which are converted from widely used Tensorflow models. Then put these models into `./models/`
 
-- **Generate adversarial examples**
+- **Generate adversarial examples by SVD under inception-v3 **
 
-  Using `MI_FGSM.py` to implement MI-FGSM, DI-FGSM, TI-FGSM or TI-DIM
-  Using `PI_FGSM.py` to implement PI-FGSM, PI-TI-DI-FGSM
-  Using `SI_NI_FGSM.py` to implement SI_NI_FGSM, SI_NI_TI-DIM
-  Using `VT_MI_FGSM.py` to implement VT_MI_FGSM
-  Using `S2I_FGSM.py` to implement S2I_FGSM or S2I_TI_DIM
-  
-  
+
   ```bash
-  
-   #The middle layer for the SVD-based feature decomposition are Mixed-6e for Inception-v3, which is layer before the parameter 'AuxLogits' 
-  CUDA_VISIBLE_DEVICES=gpuid python SFA.py --batch_size 20 --model_name inceptionv3 --layer AuxLogits
-   #The middle layer for the SVD-based feature decomposition are the last layer of block3 for Resnet-152, which is layer before the parameter 'layer4' 
-  CUDA_VISIBLE_DEVICES=gpuid python SFA.py --batch_size 20 --model_name resnet152 --layer layer4
-   #The middle layer for the SVD-based feature decomposition are the Mixed-6a for Inception-Resnet-v2 , which is layer before the parameter 'mixed_7a' 
-  CUDA_VISIBLE_DEVICES=gpuid python SFA.py --batch_size 20 --model_name inceptionresnetv2 --layer mixed_7a
-   #The middle layer for the SVD-based feature decomposition are Mixed-6b for Inception-v4
-  CUDA_VISIBLE_DEVICES=gpuid python SFA.py --batch_size 20 --model_name inceptionv4 --layer '17'
+  # Implement MI-FGSM, DI-FGSM, TI-FGSM or TI-DIM
+  CUDA_VISIBLE_DEVICES=gpuid python MI_FGSM.py
+  # Implement PI-FGSM or PI-TI-DI-FGSM
+  CUDA_VISIBLE_DEVICES=gpuid python PI_FGSM.py
+  # Implement SI_NI_FGSM, SI_NI_TI-DIM
+  CUDA_VISIBLE_DEVICES=gpuid python SI_NI_FGSM.py
+  # Implement VT_MI_FGSM
+  CUDA_VISIBLE_DEVICES=gpuid python VT_MI_FGSM.py
+  # Implement S2I_FGSM or S2I_TI_DIM
+  CUDA_VISIBLE_DEVICES=gpuid python S2I_FGSM.py
   ```
-  where `gpuid` can be set to any free GPU ID in your machine. And adversarial examples will be generated in directory `./outputs`.
+  where `gpuid` can be set to any free GPU ID in your machine. And adversarial examples will be generated in directory `./adv_img`.
   
 - **Evaluations on normally trained models**
 
   Running `verify.py` to evaluate the attack  success rate
-  Running `verifyDef.py` to evaluate the attack  success rate against adversarial trained model
   ```bash
-  CUDA_VISIBLE_DEVICES=gpuid python verify.py
-  CUDA_VISIBLE_DEVICES=gpuid python verifyDef.py
+  python verify.py
   ```
 
 - **Evaluations on defenses**
@@ -58,7 +51,5 @@ SVD-based feature decomposition atttack
     - [JPEG](https://github.com/JHL-HUST/VT/blob/main/third_party/jpeg.py): Refer to [here](https://github.com/JHL-HUST/VT/blob/main/third_party/jpeg.py).
     - [NRP](https://github.com/Muzammal-Naseer/NRP): purifier=NRP, dynamic=True, base_model=Inc-v3<sub>*ens3*</sub>. Download it from corresponding official repo.
     
-    ## References
-Code depends on [SSA](https://github.com/yuyang-long/SSA). We thank them for their wonderful code base. 
 
    
