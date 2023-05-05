@@ -17,7 +17,7 @@ SVD-based feature decomposition atttack
 
   Download pretrained PyTorch models [here](https://github.com/ylhz/tf_to_pytorch_model), which are converted from widely used Tensorflow models. Then put these models into `./models/`
 
-- **Generate adversarial examples by SVD under inception-v3 **
+- **Generate adversarial examples by SVD under inception-v3 ** -
 
 
   ```bash
