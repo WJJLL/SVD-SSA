@@ -1,4 +1,4 @@
-# SVD-SSA
+# SVD-Attack
 SVD-based feature decomposition atttack
 
 ![Learning Algo](/framework.png)
