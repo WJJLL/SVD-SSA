@@ -5,7 +5,7 @@ SVD-based feature decomposition atttack
 
 ## Requirements
 
-- python 3.8
+- python 3.9
 - torch 1.8
 - pretrainedmodels 0.7
 - numpy 1.19
