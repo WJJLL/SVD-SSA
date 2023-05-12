@@ -89,11 +89,7 @@ def graph(model ,x, gt):
         grad = grad / torch.mean(torch.abs(grad), dim=(1, 2, 3), keepdim=True)
         grad = grad + momentum * decay
         momentum = grad
-
-        grad = grad / torch.mean(torch.abs(grad), dim=(1, 2, 3), keepdim=True)
-        grad = grad + momentum * decay
-        momentum = grad
-
+        
         adv_images = adv_images.detach() + alpha * grad.sign()
         delta = torch.clamp(adv_images - x, min=-eps, max=eps)
         adv_images = torch.clamp(x + delta, min=0, max=1).detach()
